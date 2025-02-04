@@ -1,0 +1,42 @@
+/* Estilos generales */
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.cart-container img{
+    width: 30px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: aquamarine;
+}
+
+ul{
+    display: flex;
+}
+
+ul li{
+    padding: 8px 20px; /* Arriba y abajo 8px e izquierda y derecha 20px  */
+}
+
+ul li a:hover{
+    color: red;
+}
+
+.hero{
+    background-image: url(./images/hero-background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}

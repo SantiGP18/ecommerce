@@ -185,6 +185,10 @@
         flex-direction: column;
         text-align: center;
         background-color: #555;
-        transition: all .42s;
+        transition: all .42s;   
+    }
+
+    .nav-links.open{
+        top: 100%;
     }
 }

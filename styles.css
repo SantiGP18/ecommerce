@@ -8,6 +8,24 @@
     font-size: 16px;
 }
 
+.cart-container{
+    position: relative;
+}
+
+.count-products {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #ffcc00;
+    background-color: #555;
+    border-radius: 25px; /* Hace que el círculo sea redondo */
+    width: 20px;  /* Ajusta el tamaño según necesites */
+    height: 20px; /* Debe ser igual al ancho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cart-container img{
     width: 2rem;
     filter: invert(1);

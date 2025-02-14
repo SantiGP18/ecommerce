@@ -1,3 +1,5 @@
+/* Activar barra de navegacón */
+
 /*Selecciona el elemento con el ID menu-icon en el HTML.*/
 let menu = document.querySelector('#menu-icon');
 
@@ -8,3 +10,13 @@ let navlist = document.querySelector('.nav-links');
 menu.onclick = () => {
     navlist.classList.toggle('open');
 }
+
+/* Ocultar información del carrito de compras*/
+const btnCart = document.querySelector(".cart-container");
+
+const contenidoCarrito = document.querySelector('.cart-content');
+
+btnCart.addEventListener('click', () => {
+    contenidoCarrito.classList.toggle('hidden-cart')
+})
+

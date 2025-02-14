@@ -10,7 +10,6 @@
 
 .cart-container{
     position: relative;
-    background-color: #555;
 }
 
 .count-products{
@@ -35,10 +34,14 @@
     right: 0;
     width: 250px; /* Ancho del carrito */
     padding: 1rem;
-    border-radius: 3px;
+    border-radius: 10px;
     z-index: 1;
+    box-shadow: 0 1rem 1.5rem black;
 }
 
+.hidden-cart{
+    display: none;
+}
 .cart-product{
     display: flex;
     justify-content: space-around;

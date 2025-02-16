@@ -1,46 +1,51 @@
-/* Activar barra de navegacón */
-let menu = document.querySelector('#menu-icon'); /*Selecciona el elemento con el ID menu-icon en el HTML.*/
+/* Selecciona el ícono del menú y la lista de navegación en el HTML */
+let menu = document.querySelector('#menu-icon');
+let navlist = document.querySelector('.nav-links');
 
-let navlist = document.querySelector('.nav-links'); /* Selecciona el elemento con la clase nav-links en el HTML. */
-
-/* Función al evento onclick del elemento menu ´para desplegar barra de navegación */
+/* Agrega un evento al hacer clic en el ícono del menú para mostrar u ocultar la barra de navegación */
 menu.onclick = () => {
     navlist.classList.toggle('open');
 }
 
-const btnCart = document.querySelector(".container-cart-icon"); /* Ocultar información del carrito de compras*/
-
+/* Selecciona el botón del carrito y el contenedor del contenido del carrito */
+const btnCart = document.querySelector(".container-cart-icon"); 
 const contenidoCarrito = document.querySelector('.cart-content');
 
+/* Agrega un evento al hacer clic en el botón del carrito para mostrar u ocultar su contenido */
 btnCart.addEventListener('click', () => {
-    contenidoCarrito.classList.toggle('hidden-cart')
+    contenidoCarrito.classList.toggle('hidden-cart');
 })
 
-const cartInfo = document.querySelector('.cart-product')
-const rowProduct = document.querySelector('.row-product')
+/* Selecciona los elementos donde se mostrarán los productos agregados al carrito */
+const cartInfo = document.querySelector('.cart-product');
+const rowProduct = document.querySelector('.row-product');
 
-const productsList = document.querySelectorAll('.grid-container .product') // Lista de todos los contenedores de productos
+/* Obtiene la lista de productos disponibles en la tienda */
+const productsList = document.querySelectorAll('.grid-container .product');
 
-let allProducts = [] //Arreglo para almacenar todos los productos agregados al carrito
+/* Array donde se almacenarán los productos agregados al carrito */
+let allProducts = [];
 
-const valorTotal = document.querySelector('.total-price')
+/* Selecciona los elementos que mostrarán el total del carrito y el número de productos */
+const valorTotal = document.querySelector('.total-price');
+const countProducts = document.querySelector('#contador-productos');
 
-const countProducts = document.querySelector('#contador-productos')
-
-//Se asigna un evento click a cada botón de "Agregar al carrito"
+/* Asigna un evento click a cada botón de "Agregar al carrito" */
 productsList.forEach(product => {
     const addButton = product.querySelector('.add-product-btn');
     addButton.addEventListener('click', (e) => {
-        //Se obtiene y se crea un objeto con la información del producto: cantidad, título y precio.
+        /* Crea un objeto con la información del producto seleccionado */
         const infoProduct = {
             quantity: 1,
             title: product.querySelector('h3').textContent,
             price: product.querySelector('p').textContent
         };
 
-        const exist = allProducts.some(product => product.title === infoProduct.title) //Recorre todos los objetos y verificar ya esta un elelemto
+        /* Verifica si el producto ya está en el carrito */
+        const exist = allProducts.some(product => product.title === infoProduct.title);
 
         if (exist) {
+            /* Si el producto ya está en el carrito, incrementa la cantidad */  
             const products = allProducts.map(product => {
                 if (product.title === infoProduct.title) {
                     product.quantity++;
@@ -49,50 +54,54 @@ productsList.forEach(product => {
                     return product
                 }
             })
-            allProducts = [...products]
+            allProducts = [...products];
         } else {
-            allProducts.push(infoProduct) //Agregar cada producto al array
+            /* Si el producto no está en el carrito, se agrega al array */
+            allProducts.push(infoProduct);
         }
 
+        /* Llama a la función para actualizar la vista del carrito */
         showHTML();
     });
 
-    //Eliminar producto del carro de compras
+    /* Evento para eliminar un producto del carrito al hacer clic en el ícono de eliminar */
     rowProduct.addEventListener('click', e => {
         if (e.target.classList.contains('close-symbol')) {
             const product = e.target.parentElement;
             const title = product.querySelector('p').textContent;
-    
+            
+            /* Filtra el array para eliminar el producto seleccionado */
             allProducts = allProducts.filter(product => product.title !== title);
-    
-            console.log(allProducts);
+
+            /* Muestra el carrito actualizado */
             showHTML();
         }
     })
 });
 
-//Mostrar html 
+/* Función para actualizar la vista del carrito en el HTML */
 const showHTML = () => {
-
+    /* Si el carrito está vacío, muestra un mensaje e inicializa valores */
     if (!allProducts.length) {
-        rowProduct.innerHTML = '<p class="cart-empty">El carrito está vacío</p>' // Limpia la lista de productos
-        valorTotal.innerText = "$0"; // Reinicia el total
-        countProducts.innerText = "0"; // Reinicia el contador
+        rowProduct.innerHTML = '<p class="cart-empty">El carrito está vacío</p>';
+        valorTotal.innerText = "$0"; 
+        countProducts.innerText = "0";
 
         // Ocultar el contenedor del total
         document.querySelector('.cart-total-price').style.display = "none";
-
-        return; // Evita que siga ejecutándose la función
+        return;
     }
 
+    /* Muestra el contenedor del total cuando hay productos en el carrito */
     document.querySelector('.cart-total-price').style.display = "flex";
 
-    //Limpiar HTML
+    /* Limpia el contenido actual del carrito */
     rowProduct.innerHTML = ``;
 
     let total = 0;
     let totalAllProducts = 0;
 
+    /* Recorre los productos en el carrito y los agrega al HTML */
     allProducts.forEach(product => {
         const containerProduct = document.createElement('div');
         containerProduct.classList.add('cart-product');
@@ -107,12 +116,15 @@ const showHTML = () => {
     `
         rowProduct.append(containerProduct);
 
+        /* Calcula el total de la compra y la cantidad total de productos */
         total = total + parseInt(product.quantity * product.price.slice(1));
         totalAllProducts = totalAllProducts + product.quantity;
     });
 
+    /* Actualiza el total y el contador de productos en el HTML */
     valorTotal.innerText = `$${total}`;
     countProducts.innerText = totalAllProducts;
 }
 
+/* Ejecuta la función para mostrar el carrito al cargar la página */
 document.addEventListener("DOMContentLoaded", showHTML);

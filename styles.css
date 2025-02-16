@@ -26,38 +26,67 @@
     border-radius: 25px;
 }
 
-.cart-content{
-    background-color:#555;
-    color: #000;
+.cart-content {
+    background-color: #555;
     position: absolute;
     top: 50px;
     right: 0;
-    width: 250px; /* Ancho del carrito */
+    width: 280px; /* Aumentamos el ancho para mayor claridad */
     padding: 1rem;
     border-radius: 10px;
     z-index: 1;
     box-shadow: 0 1rem 1.5rem black;
 }
 
+.cart-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.5rem 0; /* Espaciado entre productos */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria sutil */
+}
+
+.cart-product:last-child {
+    border-bottom: none; /* Evita línea extra en el último producto */
+}
+
+.product-quantity {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.product-name {
+    flex-grow: 1; /* Permite que el nombre ocupe más espacio */
+    margin: 0 0.5rem;
+    text-align: left;
+}
+
+.product-price {
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.close-symbol {
+    height: 1.5rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.cart-total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #503f3f;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
 .hidden-cart{
     display: none;
-}
-.cart-product{
-    display: flex;
-    justify-content: space-around;
-}
-
-.close-symbol{
-    height: 1.5rem;
-}
-
-.cart-total-price{
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: #ddd;
-    margin-top: 1rem;
-}
+}   
 
 .cart-container img{
     width: 2rem;
@@ -221,12 +250,18 @@
         gap: 0.85rem;
         transition: all .3s;
     }
+
+    .cart-content {
+        /*width: 250px;*/
+        max-width: 320px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50px;
+        border-radius: 10px;
+    }
 }
 
 @media (max-width: 480px){
-    /*.nav-links{
-        display: none;
-    }*/
 
     #menu-icon{
         display: block;

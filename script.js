@@ -75,10 +75,17 @@ productsList.forEach(product => {
 const showHTML = () => {
 
     if (!allProducts.length) {
-        contenidoCarrito.innerHTML = `
-            <p class="cart-empty"> El carrito esta vacio </p>
-        `;
+        rowProduct.innerHTML = '<p class="cart-empty">El carrito está vacío</p>' // Limpia la lista de productos
+        valorTotal.innerText = "$0"; // Reinicia el total
+        countProducts.innerText = "0"; // Reinicia el contador
+
+        // Ocultar el contenedor del total
+        document.querySelector('.cart-total-price').style.display = "none";
+
+        return; // Evita que siga ejecutándose la función
     }
+
+    document.querySelector('.cart-total-price').style.display = "flex";
 
     //Limpiar HTML
     rowProduct.innerHTML = ``;
@@ -107,3 +114,5 @@ const showHTML = () => {
     valorTotal.innerText = `$${total}`;
     countProducts.innerText = totalAllProducts;
 }
+
+document.addEventListener("DOMContentLoaded", showHTML);

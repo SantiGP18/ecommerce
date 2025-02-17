@@ -175,4 +175,4 @@ Para garantizar la correcta implementación del diseño responsive, se realizaro
 El diseño responsive se implementó con éxito utilizando **CSS Grid, Flexbox y Media Queries**. Las pruebas realizadas confirmaron su correcta adaptabilidad en diferentes dispositivos y resoluciones de pantalla, garantizando una experiencia de usuario óptima.
 
 ## Video demostrativo del ecommerce
-[Ver video en YouTube](https://youtu.be/KRsTmdvlEgE)
+[Ver video en YouTube](https://youtu.be/ahd9mqTP45k)

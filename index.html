@@ -1,35 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Men's Clothes</title>
+
+    <!-- Enlace a hoja de estilos -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Fuentes de Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
     <link rel="icon" href="./images/favicon.png" type="image/png">
 </head>
 <body>
+
     <header>
         <!-- Barra de navegación -->
         <nav class="navbar">
-            <h1 class="logo">Men's Clothes</h1>
+            <h2 class="logo">Men's Clothes</h2>
+
+            <!-- Menú para dispoistivos móviles -->
             <div id="menu-icon">☰</div>
+
+            <!-- Enlaces de navegación -->
             <ul class="nav-links">
                 <li><a href="#pants-section">Pantalones</a></li>
                 <li><a href="#tshirts-section">Camisetas</a></li>
                 <li><a href="#sweaters-section">Abrigos</a></li>
             </ul>
+
+            <!-- Carrito de compras -->
             <div class="cart-container">
                 <div class="container-cart-icon">
                     <img src="./images/carrito-compras.svg" alt="">
-                <!-- Contador de productos -->
+
+                <!-- Contador de productos en el carrito -->
                     <div class="count-products">
                         <span id="contador-productos">0</span>
                     </div>
                 </div>
-                <!-- Contenido del carrito y clase oculta-->
+
+                <!-- Contenido del carrito (inicialmente oculto) -->
                 <div class="cart-content hidden-cart">
                     <div class="row-product">
                         <div class="cart-product">
@@ -40,6 +55,7 @@
                         </div>
                     </div>
                     
+                    <!-- Sección total del carrito -->
                     <div class="cart-total-price">
                         <h3>Total:</h3>
                         <span class="total-price">$200</span>
@@ -49,6 +65,7 @@
         </nav>
     </header>
 
+    <!-- Sección Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>Explora, conquista, viste la aventura</h1>
@@ -56,11 +73,13 @@
         </div>
     </section>
 
-    <!-- Sección de pnatalones -->
+    <!-- Sección de Pnatalones -->
     <section class="grid-container" id="pants-section">
         <div class="section-title">
             <h2>Pantalones</h2>
         </div>
+
+        <!-- Lista de productos -->
         <div class="product">
             <img src="./images/pantalones/01.jpg" alt="">
             <h3>Pantalon beige</h3>
@@ -96,11 +115,13 @@
         </div>
     </section>
 
-    <!-- Sección de camisetas -->
+    <!-- Sección de Camisetas -->
     <section class="grid-container" id="tshirts-section">
         <div class="section-title">
             <h2>Camisetas</h2>
         </div>
+
+        <!-- Lista de productos -->
         <div class="product">
             <img src="./images/camisetas/c-01.jpg" alt="">
             <h3>Azul marino</h3>
@@ -136,11 +157,13 @@
         </div>
     </section>
 
-    <!-- Sección de abrigos -->
+    <!-- Sección de Abrigos -->
     <section class="grid-container" id="sweaters-section">
         <div class="section-title">
             <h2>Abrigos</h2>
         </div>
+
+        <!-- Lista de productos -->
         <div class="product">
             <img src="./images/abrigos/a-01.jpg" alt="">
             <h3>Acolchado azul</h3>
@@ -176,7 +199,7 @@
         </div>
     </section>
 
-    <!-- Agregando link a archivo js -->
+    <!-- Enlace a script -->
     <script src="script.js"></script>
 
 </body>

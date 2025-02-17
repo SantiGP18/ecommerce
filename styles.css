@@ -8,10 +8,12 @@
     font-size: 16px;
 }
 
+/* ====== Contenedor del carrito ====== */
 .cart-container{
     position: relative;
 }
 
+/* Indicador del número de productos en el carrito */
 .count-products{
     background-color: #333;
     color: #ffcc00;
@@ -26,6 +28,7 @@
     border-radius: 25px;
 }
 
+/* Contenedor del carrito desplegable */
 .cart-content {
     background-color: #555;
     position: absolute;
@@ -38,6 +41,7 @@
     box-shadow: 0 1rem 1.5rem black;
 }
 
+/* ====== Estilos de los productos en el carrito ====== */
 .cart-product {
     display: flex;
     align-items: center;
@@ -97,14 +101,14 @@
 .logo{
     font-size: 1.5rem;
 }
+
+/* ====== Barra de navegación ====== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #222;
     padding: 1rem 1.5rem;
-    /*margin: 0 auto;*/
-    /*gap: 0.6rem;*/
     position: relative;
     color: #fff;
 }
@@ -115,9 +119,10 @@
 }
 
 .nav-links li{
-    padding: 0.5rem 1rem; /* Arriba y abajo 8px e izquierda y derecha 20px  */
+    padding: 0.5rem 1rem;
 }
 
+/* Estilos de los enlaces en la barra de navegación */
 .nav-links li a{
     color: #ddd;
     font-weight: 400;
@@ -128,10 +133,12 @@
     color: #ffcc00;
 }
 
+/* Icono de menú para móviles (oculto por defecto) */
 #menu-icon{
     display: none;
 }
 
+/* ====== Sección Hero ====== */
 .hero{
     display: flex;
     justify-content: center;
@@ -162,6 +169,7 @@
     font-weight: 300;
 }
 
+/* ====== Sección de productos en formato de cuadrícula ====== */
 .grid-container{
     margin: 2rem;
     background-color: #f8f8f8;;
@@ -182,7 +190,7 @@
     text-align: center;
 }
 
-
+/* ====== Tarjetas de productos ====== */
 .product{
     background: white;
     border-radius: 1rem;
@@ -192,8 +200,9 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efecto al pasar el mouse sobre el producto */
 .product:hover {
-    transform: translateY(-5px); /* Efecto al pasar el mouse */
+    transform: translateY(-5px); 
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -203,6 +212,7 @@
     border-radius: 1rem;
 }
 
+/* ====== Botón para agregar productos al carrito ====== */
 .add-product-btn {
     background-color: #333;
     color: white;   
@@ -228,8 +238,9 @@
     color: #fff;
 }
 
-/* Responsive */
-/* Media query para pantallas pequeñas */
+/* ====== Estilos responsivos usando media queries ====== */
+
+/* Ajustes para pantallas menores a 725px */
 @media (max-width: 725px){
     .hero-content h1 {
         font-size: 1.8rem;
@@ -240,7 +251,7 @@
         font-size: 1rem;
         transition: .3s;
     }
-}   
+}       
 
 @media (max-width: 670px){
     .navbar {
@@ -252,7 +263,6 @@
     }
 
     .cart-content {
-        /*width: 250px;*/
         max-width: 320px;
         left: 50%;
         transform: translateX(-50%);
@@ -272,7 +282,7 @@
         position: absolute;
         top: -600px;
         left: 0;
-        right: 0;
+        right: 0;   
         flex-direction: column;
         text-align: center;
         background-color: #555;

@@ -1,9 +1,9 @@
 .count-products,
-.hero {
+.hero{
 	justify-content: center
 }
 
-* {
+*{
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -12,11 +12,11 @@
 	font-size: 16px
 }
 
-.cart-container {
+.cart-container{
 	position: relative
 }
 
-.count-products {
+.count-products{
 	background-color: #333;
 	color: #fc0;
 	position: absolute;
@@ -30,11 +30,11 @@
 }
 
 .add-product-btn:hover,
-.cart-content {
+.cart-content{
 	background-color: #555
 }
 
-.cart-content {
+.cart-content{
 	position: absolute;
 	top: 50px;
 	right: 0;
@@ -45,7 +45,7 @@
 	box-shadow: 0 1rem 1.5rem #000
 }
 
-.cart-product {
+.cart-product{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -54,16 +54,16 @@
 	border-bottom: 1px solid rgba(255, 255, 255, .3)
 }
 
-.cart-product:last-child {
+.cart-product:last-child{
 	border-bottom: none
 }
 
-.product-quantity {
+.product-quantity{
 	font-weight: 700;
 	margin-right: .5rem
 }
 
-.product-name {
+.product-name{
 	flex-grow: 1;
 	margin: 0 .5rem;
 	text-align: left
@@ -72,22 +72,22 @@
 .cart-empty,
 .hero-content,
 .product,
-.section-title h2 {
+.section-title h2{
 	text-align: center
 }
 
-.product-price {
+.product-price{
 	font-weight: 700;
 	margin-left: auto
 }
 
-.close-symbol {
+.close-symbol{
 	height: 1.5rem;
 	cursor: pointer;
 	margin-left: .5rem
 }
 
-.cart-total-price {
+.cart-total-price{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -99,27 +99,27 @@
 }
 
 #menu-icon,
-.hidden-cart {
+.hidden-cart{
 	display: none
 }
 
 .hero,
 .nav-links,
-.navbar {
+.navbar{
 	display: flex
 }
 
-.cart-container img {
+.cart-container img{
 	width: 2rem;
 	filter: invert(1);
 	cursor: pointer
 }
 
-.logo {
+.logo{
 	font-size: 1.5rem
 }
 
-.navbar {
+.navbar{
 	justify-content: space-between;
 	align-items: center;
 	background-color: #222;
@@ -128,25 +128,25 @@
 	color: #fff
 }
 
-.nav-links {
+.nav-links{
 	gap: 1rem
 }
 
-.nav-links li {
+.nav-links li{
 	padding: .5rem 1rem
 }
 
-.nav-links li a {
+.nav-links li a{
 	color: #ddd;
 	font-weight: 400;
 	transition: color .3s
 }
 
-.nav-links li a:hover {
+.nav-links li a:hover{
 	color: #fc0
 }
 
-.hero {
+.hero{
 	align-items: center;
 	background-image: url(./imagenes-optimizadas-originales/hero-background.webp);
 	background-size: cover;
@@ -156,24 +156,24 @@
 	padding: 2rem
 }
 
-.hero-content {
+.hero-content{
 	background: rgba(0, 0, 0, .6);
 	padding: 1.5rem;
 	color: #fff;
 	border-radius: 1rem
 }
 
-.hero-content h1 {
+.hero-content h1{
 	font-size: 2.5rem;
 	font-weight: 600
 }
 
-.hero-content p {
+.hero-content p{
 	font-size: 1.2rem;
 	font-weight: 300
 }
 
-.grid-container {
+.grid-container{
 	margin: 2rem;
 	background-color: #f8f8f8;
 	border-radius: 10px;
@@ -184,15 +184,15 @@
 	gap: 20px
 }
 
-.section-title {
+.section-title{
 	grid-column: 1/-1
 }
 
-.section-title h2 {
+.section-title h2{
 	font-size: 2rem
 }
 
-.product {
+.product{
 	background: #fff;
 	border-radius: 1rem;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
@@ -200,18 +200,18 @@
 	transition: transform .3s, box-shadow .3s
 }
 
-.product:hover {
+.product:hover{
 	transform: translateY(-5px);
 	box-shadow: 0 6px 15px rgba(0, 0, 0, .15)
 }
 
-.product img {
+.product img{
 	max-width: 100%;
 	height: auto;
 	border-radius: 1rem
 }
 
-.add-product-btn {
+.add-product-btn{
 	background-color: #333;
 	color: #fff;
 	border: none;
@@ -221,30 +221,30 @@
 	transition: background-color .3s
 }
 
-.product-content {
+.product-content{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between
 }
 
-.cart-empty {
+.cart-empty{
 	color: #fff
 }
 
-@media (max-width:725px) {
-	.hero-content h1 {
+@media (max-width:725px){
+	.hero-content h1{
 		font-size: 1.8rem;
 		transition: .3s
 	}
 
-	.hero-content p {
+	.hero-content p{
 		font-size: 1rem;
 		transition: .3s
 	}
 }
 
-@media (max-width:670px) {
-	.navbar {
+@media (max-width:670px){
+	.navbar{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -252,7 +252,7 @@
 		transition: .3s
 	}
 
-	.cart-content {
+	.cart-content{
 		max-width: 320px;
 		left: 50%;
 		transform: translateX(-50%);
@@ -261,13 +261,13 @@
 	}
 }
 
-@media (max-width:480px) {
-	#menu-icon {
+@media (max-width:480px){
+	#menu-icon{
 		display: block;
 		cursor: pointer
 	}
 
-	.nav-links {
+	.nav-links{
 		position: absolute;
 		top: -600px;
 		left: 0;
@@ -278,7 +278,7 @@
 		transition: .42s
 	}
 
-	.nav-links.open {
+	.nav-links.open{
 		top: 100%
 	}
 }

@@ -1,0 +1,284 @@
+.count-products,
+.hero {
+	justify-content: center
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: Poppins, sans-serif;
+	font-size: 16px
+}
+
+.cart-container {
+	position: relative
+}
+
+.count-products {
+	background-color: #333;
+	color: #fc0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	border-radius: 25px
+}
+
+.add-product-btn:hover,
+.cart-content {
+	background-color: #555
+}
+
+.cart-content {
+	position: absolute;
+	top: 50px;
+	right: 0;
+	width: 280px;
+	padding: 1rem;
+	border-radius: 10px;
+	z-index: 1;
+	box-shadow: 0 1rem 1.5rem #000
+}
+
+.cart-product {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	padding: .5rem 0;
+	border-bottom: 1px solid rgba(255, 255, 255, .3)
+}
+
+.cart-product:last-child {
+	border-bottom: none
+}
+
+.product-quantity {
+	font-weight: 700;
+	margin-right: .5rem
+}
+
+.product-name {
+	flex-grow: 1;
+	margin: 0 .5rem;
+	text-align: left
+}
+
+.cart-empty,
+.hero-content,
+.product,
+.section-title h2 {
+	text-align: center
+}
+
+.product-price {
+	font-weight: 700;
+	margin-left: auto
+}
+
+.close-symbol {
+	height: 1.5rem;
+	cursor: pointer;
+	margin-left: .5rem
+}
+
+.cart-total-price {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #503f3f;
+	margin-top: 1rem;
+	padding: .5rem;
+	border-radius: 5px;
+	font-weight: 700
+}
+
+#menu-icon,
+.hidden-cart {
+	display: none
+}
+
+.hero,
+.nav-links,
+.navbar {
+	display: flex
+}
+
+.cart-container img {
+	width: 2rem;
+	filter: invert(1);
+	cursor: pointer
+}
+
+.logo {
+	font-size: 1.5rem
+}
+
+.navbar {
+	justify-content: space-between;
+	align-items: center;
+	background-color: #222;
+	padding: 1rem 1.5rem;
+	position: relative;
+	color: #fff
+}
+
+.nav-links {
+	gap: 1rem
+}
+
+.nav-links li {
+	padding: .5rem 1rem
+}
+
+.nav-links li a {
+	color: #ddd;
+	font-weight: 400;
+	transition: color .3s
+}
+
+.nav-links li a:hover {
+	color: #fc0
+}
+
+.hero {
+	align-items: center;
+	background-image: url(./imagenes-optimizadas-originales/hero-background.webp);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 70vh;
+	padding: 2rem
+}
+
+.hero-content {
+	background: rgba(0, 0, 0, .6);
+	padding: 1.5rem;
+	color: #fff;
+	border-radius: 1rem
+}
+
+.hero-content h1 {
+	font-size: 2.5rem;
+	font-weight: 600
+}
+
+.hero-content p {
+	font-size: 1.2rem;
+	font-weight: 300
+}
+
+.grid-container {
+	margin: 2rem;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	display: grid;
+	padding: 30px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	justify-content: center;
+	gap: 20px
+}
+
+.section-title {
+	grid-column: 1/-1
+}
+
+.section-title h2 {
+	font-size: 2rem
+}
+
+.product {
+	background: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+	padding: 1.2rem;
+	transition: transform .3s, box-shadow .3s
+}
+
+.product:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, .15)
+}
+
+.product img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 1rem
+}
+
+.add-product-btn {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	padding: .5rem 1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color .3s
+}
+
+.product-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between
+}
+
+.cart-empty {
+	color: #fff
+}
+
+@media (max-width:725px) {
+	.hero-content h1 {
+		font-size: 1.8rem;
+		transition: .3s
+	}
+
+	.hero-content p {
+		font-size: 1rem;
+		transition: .3s
+	}
+}
+
+@media (max-width:670px) {
+	.navbar {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: .85rem;
+		transition: .3s
+	}
+
+	.cart-content {
+		max-width: 320px;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 50px;
+		border-radius: 10px
+	}
+}
+
+@media (max-width:480px) {
+	#menu-icon {
+		display: block;
+		cursor: pointer
+	}
+
+	.nav-links {
+		position: absolute;
+		top: -600px;
+		left: 0;
+		right: 0;
+		flex-direction: column;
+		text-align: center;
+		background-color: #555;
+		transition: .42s
+	}
+
+	.nav-links.open {
+		top: 100%
+	}
+}

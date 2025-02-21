@@ -148,7 +148,7 @@
 
 .hero{
 	align-items: center;
-	background-image: url(./imagenes-optimizadas-originales/hero-background.webp);
+	background-image: url(./imagenes-optimizadas/hero-background.webp);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -196,7 +196,7 @@
 	background: #fff;
 	border-radius: 1rem;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
-	padding: 1.2rem;
+	padding: 1rem;
 	transition: transform .3s, box-shadow .3s
 }
 

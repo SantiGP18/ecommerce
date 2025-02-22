@@ -201,3 +201,53 @@ Los siguientes resultados muestran las métricas de rendimiento antes de la opti
 - **SEO:** `91/100`  
 
 ![Analisis en dispositvos mobiles](./images/performance-mobile.png)
+
+## 2. Aplicación de Optimización
+
+### 2.3 Optimización de Imágenes 
+Para mejorar el rendimiento del sitio web, se realizó la conversión de imágenes en formato **JPG** a **WebP**. Este proceso reduce el tamaño de los archivos sin afectar significativamente la calidad, lo que permite:
+
+- **Carga más rápida de la página**, mejorando la experiencia del usuario.
+- **Menor consumo de ancho de banda**, optimizando la transferencia de datos.
+- **Mejor rendimiento en SEO**, debido a tiempos de carga reducidos.
+
+## Proceso de Conversión
+
+1. Se recopilaron todas las imágenes en formato JPG utilizadas en el sitio web.
+2. Se utilizó [RedKetchup](https://redketchup.io) para convertir los archivos a **WebP**.
+3. Se verificó la calidad y reducción de tamaño tras la conversión.
+
+**Ejemplo de implementación:**  
+```html
+<img src="./imagenes-optimizadas/01.webp" loading="lazy" alt="pantalon beige">
+```
+La propiedad loading="lazy" permite que la imagen se cargue solo cuando el usuario la necesita, reduciendo la carga inicial de la página.
+
+## 2.2 Minificación y Formateo de CSS y JavaScript  
+
+Para mejorar el rendimiento y la mantenibilidad del sitio web, se aplicaron procesos de minificación y formateo en los archivos CSS y JavaScript.  
+
+### **Minificación de Archivos CSS y JavaScript**  
+Se utilizó la herramienta **CSS Minifier** para reducir el tamaño del archivo CSS y **JS Minifier** para optimizar el script JavaScript. Este proceso eliminó espacios en blanco, comentarios y caracteres innecesarios, obteniendo versiones más ligeras y eficientes.  
+
+### 📌 **Beneficios de la minificación:**  
+- **Reducción del tamaño de los archivos:** Disminuye el peso de los archivos CSS y JS, mejorando la velocidad de carga.  
+- **Optimización del rendimiento:** Archivos más ligeros reducen el tiempo de transferencia en la red.  
+- **Mejor experiencia del usuario:** La carga más rápida de los estilos y scripts mejora la interacción con la página.  
+
+**Archivos procesados:**  
+- **CSS:** `styles.css` → `styles.min.css`  
+- **JavaScript:** `script.js` → `script.min.js`  
+
+### **Formateo de Código CSS y JavaScript**  
+Para mejorar la legibilidad y mantenimiento del código, se utilizó **CSS Beautifier** y **JS Beautifier** en los archivos minificados. Esto permitió organizar el código con una estructura más clara, aplicando sangrías y una distribución adecuada de las reglas y funciones.  
+
+### 📌 **Beneficios del formateo:**  
+- **Mayor legibilidad:** Facilita la comprensión y modificación del código.  
+- **Mantenimiento eficiente:** Permite localizar errores o realizar cambios de forma más rápida.  
+
+**Archivos procesados:**  
+- **CSS:** `styles.min.css`  
+- **JavaScript:** `script.min.js`  
+
+Estos procesos garantizan un mejor equilibrio entre optimización del rendimiento y facilidad de mantenimiento del código fuente.  

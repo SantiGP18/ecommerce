@@ -251,3 +251,75 @@ Para mejorar la legibilidad y mantenimiento del código, se utilizó **CSS Beaut
 - **JavaScript:** `script.min.js`  
 
 Estos procesos garantizan un mejor equilibrio entre optimización del rendimiento y facilidad de mantenimiento del código fuente.  
+
+## Pruebas unitarias
+
+Para garantizar el correcto funcionamiento del carrito de compras en el proyecto, se implementaron pruebas unitarias utilizando Mocha y Chai. Estas pruebas permiten validar que las funciones principales del carrito operen según lo esperado.
+
+### **Herramientas utilizadas:**  
+- **Mocha:** Marco de pruebas para ejecutar los tests.
+- **Chai:**  Biblioteca de aserciones para comparar resultados esperados y reales
+
+### **Funciones probadas**  
+Se realizaron pruebas unitarias para las siguientes funciones:
+1. `agregarProducto(carrito, producto)`: Agrega un producto al carrito. Si el producto ya existe, incrementa su cantidad.
+
+2. `eliminarProducto(carrito, titulo)`: Elimina un producto específico del carrito.
+
+3. `calcularTotal(carrito)`: Calcula el precio total del carrito en base a los productos y sus cantidades.
+
+### **Implementación de las pruebas**  
+A continuación, se describe el proceso de prueba de cada función:
+
+
+### **1. Prueba de agregar un producto** 
+Se verificó que al agregar un producto al carrito, este se incluya correctamente en la lista de productos.
+
+```javascript
+beforeEach(() => {
+        carrito = [];
+    });
+    
+    it('Debe agregar un producto al carrito', () => {
+        const producto = { title: 'Producto 1', price: '$10', quantity: 1 };
+        carrito = agregarProducto(carrito, producto);
+        expect(carrito).to.have.lengthOf(1);
+        expect(carrito[0]).to.deep.equal(producto);
+    });
+```
+
+### **2. Prueba de eliminación de un producto** 
+Se verificó que al eliminar un producto, este ya no esté presente en el carrito.
+
+```javascript
+it('Debe eliminar un producto del carrito', () => {
+        const producto1 = { title: 'Producto 1', price: '$10', quantity: 1 };
+        const producto2 = { title: 'Producto 2', price: '$20', quantity: 1 };
+
+        carrito = agregarProducto(carrito, producto1);
+        carrito = agregarProducto(carrito, producto2);
+        carrito = eliminarProducto(carrito, 'Producto 1');
+
+        expect(carrito).to.have.lengthOf(1);
+        expect(carrito[0].title).to.equal('Producto 2');
+    });
+```
+
+### **3. Prueba de cálculo del total** 
+Se validó que el total del carrito se calcule correctamente multiplicando el precio por la cantidad de cada producto.
+
+```javascript
+it('Debe calcular correctamente el total del carrito', () => {
+        const producto1 = { title: 'Producto 1', price: '$10', quantity: 2 };
+        const producto2 = { title: 'Producto 2', price: '$5', quantity: 3 };
+
+        carrito = agregarProducto(carrito, producto1);
+        carrito = agregarProducto(carrito, producto2);
+
+        const total = calcularTotal(carrito);
+        expect(total).to.equal(2 * 10 + 3 * 5);
+    });
+```
+
+### **Resultados**  
+Todas las pruebas unitarias fueron ejecutadas con éxito, lo que confirma que las funciones del carrito de compras se comportan de acuerdo con los requisitos establecidos. Esto contribuye a la estabilidad del sistema y reduce la posibilidad de errores en futuras implementaciones.

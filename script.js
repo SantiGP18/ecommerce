@@ -59,7 +59,6 @@ productsList.forEach(product => {
             /* Si el producto no está en el carrito, se agrega al array */
             allProducts.push(infoProduct);
         }
-
         /* Llama a la función para actualizar la vista del carrito */
         showHTML();
     });

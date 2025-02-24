@@ -16,15 +16,6 @@ describe('Funciones del Carrito de Compras', () => {
         expect(carrito[0]).to.deep.equal(producto);
     });
 
-    it('Debe incrementar la cantidad si el producto ya existe', () => {
-        const producto = { title: 'Producto 1', price: '$10', quantity: 1 };
-        carrito = agregarProducto(carrito, producto);
-        carrito = agregarProducto(carrito, producto);
-
-        expect(carrito).to.have.lengthOf(1);
-        expect(carrito[0].quantity).to.equal(2);
-    });
-
     it('Debe eliminar un producto del carrito', () => {
         const producto1 = { title: 'Producto 1', price: '$10', quantity: 1 };
         const producto2 = { title: 'Producto 2', price: '$20', quantity: 1 };

@@ -178,7 +178,8 @@ El diseño responsive se implementó con éxito utilizando **CSS Grid, Flexbox y
 [Ver video en YouTube](https://youtu.be/ahd9mqTP45k)
 
 # Optimización del Rendimiento del Front-End y Pruebas Unitarias
-## Evaluación Inicial del Rendimiento
+
+## Evaluación inicial de rendimiento
 Antes de realizar mejoras, se evaluó el rendimiento actual del sitio web utilizando **Lighthouse**.
 
 ### Resultados Iniciales
@@ -186,7 +187,7 @@ Los siguientes resultados muestran las métricas de rendimiento antes de la opti
 
 ### **Lighthouse (Antes de la optimización)** ###
 
-### 1.1. Prueba en escritorio
+### Prueba en escritorio
 - **Performance:** `95/100`  
 - **Accesibilidad:** `100/100`  
 - **Mejores Prácticas:** `100/100`  
@@ -194,7 +195,7 @@ Los siguientes resultados muestran las métricas de rendimiento antes de la opti
 
 ![Analisis en dispositvos de escritorio](./images/performace-desktop.png)
 
-### 1.1. Prueba en Dispositivos Móviles
+### Prueba en dispositivos Móviles
 - **Performance:** `70/100`  
 - **Accesibilidad:** `100/100`  
 - **Mejores Prácticas:** `100/100`  
@@ -322,3 +323,25 @@ it('Debe calcular correctamente el total del carrito', () => {
 Todas las pruebas unitarias fueron ejecutadas con éxito, lo que confirma que las funciones del carrito de compras se comportan de acuerdo con los requisitos establecidos. Esto contribuye a la estabilidad del sistema y reduce la posibilidad de errores en futuras implementaciones.
 
 ![Resultados de pruebas unitarias](./images/resultados-pruebas-unitarias.png)
+
+## Evaluación final de rendimiento
+Antes de realizar mejoras, se evaluó el rendimiento actual del sitio web utilizando **Lighthouse**.
+
+### Resultados final 
+Los siguientes resultados muestran las métricas de rendimiento despúes de la optimización:
+
+### Prueba en escritorio
+- **Performance:** `100/100`  
+- **Accesibilidad:** `100/100`  
+- **Mejores Prácticas:** `100/100`  
+- **SEO:** `91/100`
+
+![Resultados de pruebas unitarias](./images/metricas-finales-desktop.png)
+
+### Prueba en dispositivos móviles
+- **Performance:** `95/100`  
+- **Accesibilidad:** `100/100`  
+- **Mejores Prácticas:** `100/100`  
+- **SEO:** `91/100`
+
+![Resultados de pruebas unitarias](./images/metricas-finales-mobile.png)

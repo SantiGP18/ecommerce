@@ -178,10 +178,10 @@ El diseño responsive se implementó con éxito utilizando **CSS Grid, Flexbox y
 [Ver video en YouTube](https://youtu.be/ahd9mqTP45k)
 
 # Optimización del Rendimiento del Front-End y Pruebas Unitarias
-## 1. Evaluación Inicial del Rendimiento
-Antes de realizar mejoras, se evaluó el rendimiento actual del sitio web utilizando **Lighthouse** y **PageSpeed Insights**.
+## Evaluación Inicial del Rendimiento
+Antes de realizar mejoras, se evaluó el rendimiento actual del sitio web utilizando **Lighthouse**.
 
-### 1.1 Resultados Iniciales
+### Resultados Iniciales
 Los siguientes resultados muestran las métricas de rendimiento antes de la optimización:
 
 ### **Lighthouse (Antes de la optimización)** ###
@@ -202,9 +202,9 @@ Los siguientes resultados muestran las métricas de rendimiento antes de la opti
 
 ![Analisis en dispositvos mobiles](./images/performance-mobile.png)
 
-## 2. Aplicación de Optimización
+## Aplicación de optimización de rendimiento
 
-### 2.3 Optimización de Imágenes 
+### Optimización de Imágenes 
 Para mejorar el rendimiento del sitio web, se realizó la conversión de imágenes en formato **JPG** a **WebP**. Este proceso reduce el tamaño de los archivos sin afectar significativamente la calidad, lo que permite:
 
 - **Carga más rápida de la página**, mejorando la experiencia del usuario.
@@ -221,16 +221,14 @@ Para mejorar el rendimiento del sitio web, se realizó la conversión de imágen
 ```html
 <img src="./imagenes-optimizadas/01.webp" loading="lazy" alt="pantalon beige">
 ```
-La propiedad loading="lazy" permite que la imagen se cargue solo cuando el usuario la necesita, reduciendo la carga inicial de la página.
+Además, se agregó la propiedad `loading="lazy"` permite que la imagen se cargue solo cuando el usuario se desplace hacia ellas., reduciendo la carga inicial de la página.
 
-## 2.2 Minificación y Formateo de CSS y JavaScript  
+## Minificación y formateo de archivos CSS y JavaScript  
 
-Para mejorar el rendimiento y la mantenibilidad del sitio web, se aplicaron procesos de minificación y formateo en los archivos CSS y JavaScript.  
-
-### **Minificación de Archivos CSS y JavaScript**  
+Para mejorar el rendimiento y la mantenibilidad del sitio web, se aplicaron procesos de minificación y formateo en los archivos CSS y JavaScript.   
 Se utilizó la herramienta **CSS Minifier** para reducir el tamaño del archivo CSS y **JS Minifier** para optimizar el script JavaScript. Este proceso eliminó espacios en blanco, comentarios y caracteres innecesarios, obteniendo versiones más ligeras y eficientes.  
 
-### 📌 **Beneficios de la minificación:**  
+### **Beneficios de la minificación:**  
 - **Reducción del tamaño de los archivos:** Disminuye el peso de los archivos CSS y JS, mejorando la velocidad de carga.  
 - **Optimización del rendimiento:** Archivos más ligeros reducen el tiempo de transferencia en la red.  
 - **Mejor experiencia del usuario:** La carga más rápida de los estilos y scripts mejora la interacción con la página.  
@@ -239,10 +237,10 @@ Se utilizó la herramienta **CSS Minifier** para reducir el tamaño del archivo 
 - **CSS:** `styles.css` → `styles.min.css`  
 - **JavaScript:** `script.js` → `script.min.js`  
 
-### **Formateo de Código CSS y JavaScript**  
+### **Formateo de archivos CSS y JavaScript**  
 Para mejorar la legibilidad y mantenimiento del código, se utilizó **CSS Beautifier** y **JS Beautifier** en los archivos minificados. Esto permitió organizar el código con una estructura más clara, aplicando sangrías y una distribución adecuada de las reglas y funciones.  
 
-### 📌 **Beneficios del formateo:**  
+### **Beneficios del formateo:**  
 - **Mayor legibilidad:** Facilita la comprensión y modificación del código.  
 - **Mantenimiento eficiente:** Permite localizar errores o realizar cambios de forma más rápida.  
 
@@ -254,7 +252,7 @@ Estos procesos garantizan un mejor equilibrio entre optimización del rendimient
 
 ## Pruebas unitarias
 
-Para garantizar el correcto funcionamiento del carrito de compras en el proyecto, se implementaron pruebas unitarias utilizando Mocha y Chai. Estas pruebas permiten validar que las funciones principales del carrito operen según lo esperado.
+Para garantizar el correcto funcionamiento de los componentes principales en el proyecto, se implementaron pruebas unitarias utilizando Mocha y Chai. Estas pruebas permiten validar que las funciones principales del carrito operen según lo esperado.
 
 ### **Herramientas utilizadas:**  
 - **Mocha:** Marco de pruebas para ejecutar los tests.
@@ -262,15 +260,14 @@ Para garantizar el correcto funcionamiento del carrito de compras en el proyecto
 
 ### **Funciones probadas**  
 Se realizaron pruebas unitarias para las siguientes funciones:
-1. `agregarProducto(carrito, producto)`: Agrega un producto al carrito. Si el producto ya existe, incrementa su cantidad.
+1. `agregarProducto(carrito, producto)`: Agrega un producto al carrito.
 
 2. `eliminarProducto(carrito, titulo)`: Elimina un producto específico del carrito.
 
 3. `calcularTotal(carrito)`: Calcula el precio total del carrito en base a los productos y sus cantidades.
 
 ### **Implementación de las pruebas**  
-A continuación, se describe el proceso de prueba de cada función:
-
+A continuación, se describe el proceso de prueba de cada función:    
 
 ### **1. Prueba de agregar un producto** 
 Se verificó que al agregar un producto al carrito, este se incluya correctamente en la lista de productos.
@@ -323,3 +320,5 @@ it('Debe calcular correctamente el total del carrito', () => {
 
 ### **Resultados**  
 Todas las pruebas unitarias fueron ejecutadas con éxito, lo que confirma que las funciones del carrito de compras se comportan de acuerdo con los requisitos establecidos. Esto contribuye a la estabilidad del sistema y reduce la posibilidad de errores en futuras implementaciones.
+
+![Resultados de pruebas unitarias](./images/resultados-pruebas-unitarias.png)

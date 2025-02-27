@@ -325,9 +325,6 @@ Todas las pruebas unitarias fueron ejecutadas con éxito, lo que confirma que la
 ![Resultados de pruebas unitarias](./images/resultados-pruebas-unitarias.png)
 
 ## Evaluación final de rendimiento
-Antes de realizar mejoras, se evaluó el rendimiento actual del sitio web utilizando **Lighthouse**.
-
-### Resultados final 
 Los siguientes resultados muestran las métricas de rendimiento despúes de la optimización:
 
 ### Prueba en escritorio
@@ -345,3 +342,7 @@ Los siguientes resultados muestran las métricas de rendimiento despúes de la o
 - **SEO:** `91/100`
 
 ![Resultados de pruebas unitarias](./images/metricas-finales-mobile.png)
+
+En términos generales, los resultados de LightHouse reflejan una optimización significativa en el rendimiento de la página web. La mejora más notable se observa en la puntuación de Performance, reduciendo métricas clave como el First Contentful Paint, Largest Contentful Paint y Speed Index. Además, el Total Blocking Time se mantiene en 0ms, asegurando una experiencia fluida para el usuario. En términos de Accesibilidad, Buenas Prácticas y SEO, las puntuaciones se mantuvieron estables, con valores muy altos.
+
+En conclusión, las optimizaciones han logrado una mejora en la velocidad de carga y estabilidad visual, consolidando una experiencia de usuario más eficiente y rápida. 

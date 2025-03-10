@@ -10,15 +10,24 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // Un pedido pertenece a un usuario
+      Pedido.belongsTo(models.Usuario, {
+        foreignKey: 'usuario_id'
+      });
+
+      // Un pedido puede tener múltiples detalles de pedido
+      Pedido.hasMany(models.DetallePedido, {
+        foreignKey: 'pedido_id'
+      });
     }
   }
   Pedido.init({
-    usuario_id: DataTypes.STRING,
+    usuario_id: DataTypes.INTEGER,
     total: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Pedido',
+    tableName: 'pedido'
   });
   return Pedido;
 };

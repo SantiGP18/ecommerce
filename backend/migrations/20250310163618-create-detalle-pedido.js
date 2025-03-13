@@ -31,7 +31,8 @@ module.exports = {
       },
       cantidad_producto: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,

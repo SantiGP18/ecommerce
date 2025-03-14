@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware básico
 app.use(express.json()); // Permite manejar JSON en las peticiones
-app.use(cors()); // Habilita CORS para el Front-End
+app.use(cors()); // Permite solicitudes desde el frontend
 app.use(morgan('dev')); // Muestra logs de las peticiones en la terminal
 
 // Probar la conexión con la base de datos
@@ -22,6 +22,45 @@ sequelize.authenticate()
     .catch(err => {
         console.error('Error al conectar a la base de datos:', err);
     });
+
+// Productos iniciales
+const productosIniciales = [
+    { nombre: 'Pantalon beige', precio: 5 },
+    { nombre: 'Pantalon blanco', precio: 5 },
+    { nombre: 'Pantalon negro', precio: 5 },
+    { nombre: 'Pantalon de drill', precio: 5 },
+    { nombre: 'Pantalon verde', precio: 5 },
+    { nombre: 'Camiseta azul marino', precio: 5 },
+    { nombre: 'Camiseta azul roja', precio: 5 },
+    { nombre: 'Camiseta veranera', precio: 5 },
+    { nombre: 'Camiseta verde', precio: 5 },
+    { nombre: 'Camiseta azul claro', precio: 5 },
+    { nombre: 'Abrigo acolchado azul', precio: 5 },
+    { nombre: 'Abrigo oscuro en lana', precio: 5 },
+    { nombre: 'Abrigo gris en lana', precio: 5 },
+    { nombre: 'Abrigo acolchado negro', precio: 5 },
+    { nombre: 'Abrigo deportivo negro', precio: 5 }
+];
+
+// Función para cargar los productos iniciales si no existen
+const cargarProductosIniciales = async () => {
+    try {
+        for (const producto of productosIniciales) {
+            const productoExistente = await Producto.findOne({ where: { nombre: producto.nombre } });
+            if (!productoExistente) {
+                await Producto.create(producto);
+                console.log(`Producto agregado: ${producto.nombre}`);
+            } else {
+                console.log(`El producto "${producto.nombre}" ya existe`);
+            }
+        }
+    } catch (error) {
+        console.error('Error al cargar productos iniciales:', error);
+    }
+};
+
+// Cargar productos iniciales al arrancar el servidor
+cargarProductosIniciales();
 
 // Registro de usuario
 app.post('/register', async (req, res) => {
@@ -80,8 +119,37 @@ const verificarToken = (req, res, next) => {
     });
 };
 
-app.get('/perfil', verificarToken, (req, res) => {
-    res.json({ message: 'Bienvenido al perfil protegido', user: req.user });
+// Ruta para agregar productos
+app.post('/productos', async (req, res) => {
+    try {
+        const { nombre, precio } = req.body;
+
+        if (!nombre || !precio) {
+            return res.status(400).json({ error: 'Nombre y precio son obligatorios' });
+        }
+
+        const nuevoProducto = await Producto.create({ nombre, precio });
+        res.status(201).json({ message: 'Producto agregado', id: nuevoProducto.id });
+    } catch (error) {
+        console.error('Error al agregar el producto:', error);
+        res.status(500).json({ error: 'Error al agregar el producto' });
+    }
+});
+
+// Ruta para obtener productos
+app.get('/productos', async (req, res) => {
+    try {
+        const productos = await Producto.findAll();
+        res.status(200).json(productos);
+    } catch (error) {
+        console.error('Error al obtener los productos:', error);
+        res.status(500).json({ error: 'Error al obtener los productos' });
+    }
+});
+
+app.get('/usuario', verificarToken, (req, res) => {
+    res.set('Cache-Control', 'no-store'); // Evita caché
+    res.json({ nombre: req.user.nombre });
 });
 
 // Ruta de prueba
@@ -95,6 +163,7 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
+/*
 app.get('/check-associations', (req, res) => {
     try {
         const associations = {};    
@@ -135,4 +204,4 @@ app.get('/test-relations', async (req, res) => {
         console.error('Error al probar relaciones:', error);
         res.status(500).json({ error: 'Error al probar relaciones', details: error });
     }
-});
+});*/

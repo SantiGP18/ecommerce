@@ -5,6 +5,9 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bcrypt = require('bcryptjs'); 
 const jwt = require('jsonwebtoken');
+const xssClean = require('xss-clean');
+const helmet = require('helmet');
+
 const { sequelize, Usuario, Pedido, Producto, DetallePedido } = require('./models');
 
 const app = express();
@@ -13,7 +16,9 @@ const app = express();
 app.use(express.json()); // Permite manejar JSON en las peticiones
 app.use(cors()); // Permite solicitudes desde el frontend
 app.use(morgan('dev')); // Muestra logs de las peticiones en la terminal
-
+app.use(xssClean()); // Limpia los inputs
+app.use(helmet()); // Configura headers seguros automáticamente
+    
 // Probar la conexión con la base de datos
 sequelize.authenticate()
     .then(() => {
@@ -163,45 +168,38 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
-/*
-app.get('/check-associations', (req, res) => {
+app.post('/finalizarPedido', verificarToken, async (req, res) => {
+    const { carrito } = req.body; // Recibimos el carrito desde el frontend
+    const usuarioId = req.user.id;
+
     try {
-        const associations = {};    
-        
-        // Obtener los modelos cargados en Sequelize
-        Object.keys(sequelize.models).forEach(modelName => {
-            const model = sequelize.models[modelName];
-            associations[modelName] = Object.keys(model.associations);
+        // Calcular el total del pedido
+        let total = 0;
+        for (const item of carrito) {
+            const producto = await Producto.findByPk(item.producto_id);
+            if (!producto) return res.status(404).json({ message: 'Producto no encontrado' });
+            total += producto.precio * item.cantidad_producto;
+        }
+
+        // Crear el pedido
+        const nuevoPedido = await Pedido.create({
+            usuario_id: usuarioId,
+            total,
         });
 
-        res.json({ message: "Asociaciones cargadas correctamente", associations });
+        // Crear los detalles del pedido
+        for (const item of carrito) {
+            await DetallePedido.create({
+                pedido_id: nuevoPedido.id,
+                producto_id: item.producto_id,
+                cantidad_producto: item.cantidad_producto,
+            });
+        }
+
+        res.status(201).json({ message: 'Pedido guardado exitosamente' });
+
     } catch (error) {
-        console.error("Error al verificar asociaciones:", error);
-        res.status(500).json({ error: "Error al verificar asociaciones" });
+        console.error('Error al finalizar el pedido:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
     }
 });
-
-app.get('/test-relations', async (req, res) => {
-    try {
-        // Crear un usuario
-        const usuario = await Usuario.create({ nombre: 'Juan Pérez', password: '1234' });
-
-        // Crear un pedido asociado a ese usuario
-        const pedido = await Pedido.create({ usuario_id: usuario.id, total: 150 });
-
-        // Crear un producto
-        const producto = await Producto.create({ nombre: 'Laptop', precio: 1200 });
-
-        // Agregar producto al detalle del pedido
-        const detalle = await DetallePedido.create({    
-            pedido_id: pedido.id, 
-            producto_id: producto.id, 
-            cantidad_producto: 1 
-        });
-
-        res.json({ message: 'Datos creados exitosamente', usuario, pedido, producto, detalle });
-    } catch (error) {
-        console.error('Error al probar relaciones:', error);
-        res.status(500).json({ error: 'Error al probar relaciones', details: error });
-    }
-});*/

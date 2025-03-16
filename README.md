@@ -346,3 +346,58 @@ Los siguientes resultados muestran las métricas de rendimiento despúes de la o
 En términos generales, los resultados de LightHouse reflejan una optimización significativa en el rendimiento de la página web. La mejora más notable se observa en la puntuación de Performance, reduciendo métricas clave como el First Contentful Paint, Largest Contentful Paint y Speed Index. Además, el Total Blocking Time se mantiene en 0ms, asegurando una experiencia fluida para el usuario. En términos de Accesibilidad, Buenas Prácticas y SEO, las puntuaciones se mantuvieron estables, con valores muy altos.
 
 En conclusión, las optimizaciones han logrado una mejora en la velocidad de carga y estabilidad visual, consolidando una experiencia de usuario más eficiente y rápida. 
+
+## **Arquitectura de la Aplicación**
+
+La aplicación sigue una arquitectura **Cliente-Servidor** dividida en **Front-End** y **Back-End**:
+
+- **Front-End:** Compuesto por archivos HTML, CSS y JavaScript. Los archivos `index.html`, `register.html` y `tienda.html` representan las vistas principales. Los estilos están organizados en varios archivos CSS para las diferentes páginas y funcionalidades.
+
+- **Back-End:** Organizado en una carpeta llamada `backend`, contiene:
+  - **Migrations:** Archivos para la creación de tablas en la base de datos (`create-producto.js` y `create-detalle-pedido.js`).
+  - **Models:** Define las estructuras de datos y las relaciones (`usuario.js`, `producto.js`, `pedido.js`, `detallepedido.js`).
+  - **app.js:** Punto de entrada del servidor. Es responsable de manejar las rutas, conectar la base de datos y coordinar la lógica entre el frontend y la base de datos.
+  - **.env:** Gestiona las variables de entorno sensibles como claves y conexiones.
+
+  ### **Conexión Front-Back:**
+- El frontend hace peticiones **HTTP** (GET, POST, PUT, DELETE) al backend a través de **fetch API**.
+- El backend responde con datos en formato **JSON**.
+- Se usan rutas en `app.js` para procesar las solicitudes, validar datos y devolver respuestas.
+
+### **Conexión con la Base de Datos:**
+- El backend emplea los modelos definidos en la carpeta `models` para interactuar con la base de datos.
+
+## **Medidas de Seguridad Implementadas**
+
+- **Autenticación:**
+  - Se utiliza una estrategia basada en **usuarios y contraseñas cifradas** con **bcrypt**.
+  - Los usuarios deben registrarse e iniciar sesión para acceder a funcionalidades protegidas.
+
+- **Protección contra vulnerabilidades:**
+  - **Validación de entradas:** El backend valida los datos recibidos para prevenir **Inyección SQL** y **XSS**.
+  - **Uso de .env:** Oculta credenciales sensibles.
+  - **CSRF Protection:** Se implementa un token CSRF para evitar ataques de falsificación de solicitudes.
+---
+## **Base de Datos**
+
+El esquema de la base de datos tiene las siguientes tablas:
+
+- **Usuario:** `id`, `nombre`, `password`.
+- **Producto:** `id`, `nombre`,`precio`.
+- **Pedido:** `id`, `usuario_id`, `total`.
+- **DetallePedido:** `id`, `pedido_id`, `producto_id`, `cantidad`.
+
+### **Relaciones:**
+- **Usuario-Pedido:** Relación uno a muchos.
+- **Pedido-DetallePedido:** Relación uno a muchos.
+- **Producto-DetallePedido:** Relación uno a muchos.
+
+## **4. Desafíos Enfrentados:**
+    
+- **Gestión de rutas dinámicas:**
+  - **Problema:** El backend necesitaba manejar rutas dinámicas y validar parámetros.
+  - **Solución:** Implementación de expresiones regulares en rutas y middleware para validar IDs.
+
+- **Manejo de estados en frontend:**
+  - **Problema:** Mantener la sesión del usuario activa tras recargar la página.
+  - **Solución:** Se guardó la sesión en **localStorage** y se agregó una validación al iniciar el frontend.

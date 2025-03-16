@@ -125,5 +125,5 @@ const showHTML = () => {
     countProducts.innerText = totalAllProducts;
 }
 
-/* Ejecuta la función para mostrar el carrito al cargar la página */
+/* Ejecuta la función para mostrar el carrito al cargar la página */    
 document.addEventListener("DOMContentLoaded", showHTML);

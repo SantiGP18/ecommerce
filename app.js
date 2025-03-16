@@ -71,14 +71,6 @@ fetch(`${apiUrl}/productos`, {
     .then(productos => {
         productos.forEach(producto => {
             console.log(`Producto: ${producto.nombre}, Precio: ${producto.precio}`);
-            // Aquí puedes agregar la lógica para mostrarlos en el frontend
         });
     })
     .catch(err => console.error('Error al obtener los productos:', err));
-
-
-
-
-
-
-
